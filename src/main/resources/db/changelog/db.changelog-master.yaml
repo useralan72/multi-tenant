@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: alan
+      changes:
+        - createTable:
+            tableName: meters
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: inputBy
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: alan
+      changes:
+        - sql:
+              comment: What about Bob?
+              dbms: h2
+              endDelimiter: \nGO
+              splitStatements: true
+              sql: insert into meters (inputBy) values ('alane')
+              sql: insert into meters (inputBy) values ('alane2')
+              stripComments: true
+

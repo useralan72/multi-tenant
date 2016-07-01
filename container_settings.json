@@ -1,0 +1,15 @@
+{
+  "_comment": "FOR DETAILED FORMAT LOOK AT https://docs.docker.com/reference/api/docker_remote_api_v1.16/#create-a-container",
+  "AttachStdin": true,
+  "OpenStdin": true,
+  "ExposedPorts": {
+    "8080/tcp": {},
+    "14096/tcp": {}
+  },
+  "HostConfig": {
+    "PortBindings":{
+      "8080/tcp": [{ "HostPort": "8080", "HostIp":"0.0.0.0" }],
+      "14096/tcp": [{ "HostPort": "14096", "HostIp":"0.0.0.0" }]
+    }
+  }
+}
