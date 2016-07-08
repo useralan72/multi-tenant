@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Authentication": {
+    "Bucket": "yourbucketname",
+    "Key": ".dockercfg.json"
+  },
+  "Image": {
+    "Name": "umitunal/spring-boot-docker",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8080"
+    }
+  ],
+  "Logging": "/var/log"
+}

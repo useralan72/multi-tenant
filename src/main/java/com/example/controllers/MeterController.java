@@ -20,7 +20,7 @@ public class MeterController {
     private MeterService meterService;
 
     @RequestMapping(path = "/meters", method= RequestMethod.POST)
-    public ResponseEntity<?> createSampleOrder(@RequestHeader("X-TenantID") String tenantName) {
+    public ResponseEntity<?> createMeterReading(@RequestHeader("X-TenantID") String tenantName) {
        // TenantContext.setCurrentTenant(tenantName);
 
         Meter newMeter = new Meter();
@@ -31,8 +31,7 @@ public class MeterController {
     }
 
     @RequestMapping(path = "/meters/{id}", method= RequestMethod.GET)
-    public ResponseEntity<?> getMeter(@RequestHeader("X-TenantID") String tenantId, @PathVariable("id") Integer id) {
-       // TenantContext.setCurrentTenant(tenantName);
+    public ResponseEntity<?> getMeter(@PathVariable("id") Integer id) {
         String enteredBy = meterService.getMeterId(id);
         return ResponseEntity.ok(enteredBy);
     }
