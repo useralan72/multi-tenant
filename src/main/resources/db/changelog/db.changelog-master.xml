@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="AE2">
+        <sql>
+            create schema if not exists MT1;
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="AE2">
+        <createTable tableName="meters" schemaName="MT1">
+            <column name="ID" type="int" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="INPUTBY" type="varchar2(50)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="AE2">
+        <sql splitStatements="true">
+            insert into MT1.meters (id, inputBy) values (1, 'alane');
+            insert into MT1.meters (id, inputBy) values (2, 'alane2');
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="AE2">
+        <sql>
+            create schema if not exists MT2;
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="AE2">
+        <createTable tableName="meters" schemaName="MT2">
+            <column name="ID" type="int" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="INPUTBY" type="varchar2(50)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="AE2">
+        <sql splitStatements="true">
+            insert into MT2.meters (id, inputBy) values (1, 'mary1');
+            insert into MT2.meters (id, inputBy) values (2, 'mary2');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
